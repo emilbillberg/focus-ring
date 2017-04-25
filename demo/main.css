@@ -1,0 +1,41 @@
+html {
+  height: 100%;
+  font-size: 62.5%;
+  background-color: #fff;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+div {
+  margin-bottom: .8rem;
+}
+
+:focus {
+  outline: none;
+}
+
+[focus-ring]:focus {
+  box-shadow: 0px 0px 2px 2px red;
+}
+
+a {
+  font-size: 1.6rem;
+  padding: .8rem;
+  padding-left: 0;
+}
+
+input, textarea, button, select {
+  width: 30rem;
+  padding: .8rem;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 1px solid #000;
+  border-radius: 0;
+  box-sizing: border-box;
+  font-size: 1.6rem;
+}

@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var hasFocusringAttribute = element.hasAttribute('focus-ring');
     var isBodyElement = element === document.body;
     if (!hasFocusringAttribute && !isBodyElement) {
-      element.addEventListener('blur', onBlur, true);
+      element.addEventListener('blur', onBlur, { capture: false, passive: true });
       element.setAttribute('focus-ring', '');
     }
   }
@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function() {
   function removeFocusRingAttribute(element) {
     var hasFocusringAttribute = element.hasAttribute('focus-ring');
     if (hasFocusringAttribute) {
-      element.removeEventListener('blur', onBlur, true);
+      element.removeEventListener('blur', onBlur, { capture: false, passive: true });
       element.removeAttribute('focus-ring');
     }
   }

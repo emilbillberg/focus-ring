@@ -36,9 +36,13 @@ document.addEventListener('DOMContentLoaded', function() {
     removeFocusRingAttribute(event.target);
   }
 
-  function onFocus(event) {
-    var activeElement = findActiveElement();
-    addFocusRingAttribute(activeElement);
+  function onWindowFocus(event) {
+    if (event.target === event.currentTarget) {
+      requestAnimationFrame(function() {
+        var activeElement = findActiveElement();
+        addFocusRingAttribute(activeElement);
+      });
+    }
   }
 
   function addFocusRingAttribute(element) {
@@ -87,5 +91,5 @@ document.addEventListener('DOMContentLoaded', function() {
 
   document.body.addEventListener('keydown', onKeyDown, true);
   document.body.addEventListener('click', onClick, true);
-  window.addEventListener('focus', onFocus, true);
+  window.addEventListener('focus', onWindowFocus, true);
 });
